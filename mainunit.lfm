@@ -1,11 +1,12 @@
 object Form1: TForm1
-  Left = 538
-  Height = 276
-  Top = 285
-  Width = 435
+  Left = 410
+  Height = 181
+  Top = 185
+  Width = 394
   Caption = 'Leaf 磁力链剪贴板自动补全守护进程'
-  ClientHeight = 276
-  ClientWidth = 435
+  ClientHeight = 181
+  ClientWidth = 394
+  OnCreate = FormCreate
   OnShow = FormShow
   LCLVersion = '1.6.4.0'
   object Label1: TLabel
@@ -13,9 +14,9 @@ object Form1: TForm1
     AnchorSideLeft.Side = asrCenter
     AnchorSideTop.Control = Owner
     AnchorSideTop.Side = asrCenter
-    Left = 187
+    Left = 167
     Height = 17
-    Top = 130
+    Top = 82
     Width = 60
     Caption = '当前状态：'
     ParentColor = False
@@ -27,14 +28,15 @@ object Form1: TForm1
     AnchorSideTop.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 180
+    Left = 160
     Height = 25
-    Top = 236
+    Top = 141
     Width = 75
     Anchors = [akLeft, akBottom]
     BorderSpacing.Top = 15
     BorderSpacing.Bottom = 15
     Caption = '切换状态'
+    OnClick = Button1Click
     TabOrder = 0
   end
   object Button2: TButton
@@ -44,9 +46,9 @@ object Form1: TForm1
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 345
+    Left = 304
     Height = 25
-    Top = 236
+    Top = 141
     Width = 75
     Anchors = [akTop, akRight, akBottom]
     BorderSpacing.Right = 15
@@ -62,7 +64,7 @@ object Form1: TForm1
     AnchorSideBottom.Side = asrBottom
     Left = 15
     Height = 25
-    Top = 236
+    Top = 141
     Width = 75
     Anchors = [akTop, akLeft, akBottom]
     BorderSpacing.Left = 15
@@ -70,5 +72,17 @@ object Form1: TForm1
     Caption = '立即补全'
     OnClick = Button3Click
     TabOrder = 2
+  end
+  object Timer1: TTimer
+    Interval = 500
+    OnTimer = Timer1Timer
+    left = 120
+    top = 24
+  end
+  object TrayIcon1: TTrayIcon
+    BalloonFlags = bfInfo
+    Visible = True
+    left = 40
+    top = 24
   end
 end
