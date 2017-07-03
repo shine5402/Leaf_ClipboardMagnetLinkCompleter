@@ -1,0 +1,74 @@
+object Form1: TForm1
+  Left = 538
+  Height = 276
+  Top = 285
+  Width = 435
+  Caption = 'Leaf 磁力链剪贴板自动补全守护进程'
+  ClientHeight = 276
+  ClientWidth = 435
+  OnShow = FormShow
+  LCLVersion = '1.6.4.0'
+  object Label1: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideLeft.Side = asrCenter
+    AnchorSideTop.Control = Owner
+    AnchorSideTop.Side = asrCenter
+    Left = 187
+    Height = 17
+    Top = 130
+    Width = 60
+    Caption = '当前状态：'
+    ParentColor = False
+  end
+  object Button1: TButton
+    AnchorSideLeft.Control = Owner
+    AnchorSideLeft.Side = asrCenter
+    AnchorSideTop.Control = Label1
+    AnchorSideTop.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 180
+    Height = 25
+    Top = 236
+    Width = 75
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Top = 15
+    BorderSpacing.Bottom = 15
+    Caption = '切换状态'
+    TabOrder = 0
+  end
+  object Button2: TButton
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Button1
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 345
+    Height = 25
+    Top = 236
+    Width = 75
+    Anchors = [akTop, akRight, akBottom]
+    BorderSpacing.Right = 15
+    BorderSpacing.Bottom = 15
+    Caption = '设置'
+    OnClick = Button2Click
+    TabOrder = 1
+  end
+  object Button3: TButton
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Button1
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 15
+    Height = 25
+    Top = 236
+    Width = 75
+    Anchors = [akTop, akLeft, akBottom]
+    BorderSpacing.Left = 15
+    BorderSpacing.Bottom = 15
+    Caption = '立即补全'
+    OnClick = Button3Click
+    TabOrder = 2
+  end
+end
