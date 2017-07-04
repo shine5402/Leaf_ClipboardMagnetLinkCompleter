@@ -1,0 +1,2 @@
+# Leaf_ClipboardMagnetLinkCompleter
+监视剪贴板并补全磁力链的一个小工具
