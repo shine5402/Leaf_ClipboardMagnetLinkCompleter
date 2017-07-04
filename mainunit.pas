@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  Clipbrd, ExtCtrls;
+  Clipbrd, ExtCtrls, inifiles;
 
 type
 
@@ -22,6 +22,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
@@ -39,6 +40,8 @@ type
 var
   Form1: TForm1;
   switch:boolean;
+  settings:Tinifile;
+  settingspath:string;
 implementation
  uses settingunit;
 {$R *.lfm}
@@ -84,9 +87,22 @@ begin
      if not(RunComplete) then MessageDlg('Leaf 磁力链接剪贴板自动补全守护进程','剪贴板看起来不能或者不需要补全',mtInformation,[mbOK],0) else MessageDlg('Leaf 磁力链接剪贴板自动补全守护进程','补全完成！'+#13+#10+'现在的剪贴板是：'+Clipboard.AsText,mtInformation,[mbOK],0);//showmessage('补全完成！'+#13+#10+'现在的剪贴板是：'+Clipboard.AsText);
 end;
 
+procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+var i:integer;
+begin
+  i:=timer1.Interval;
+     settings.WriteInteger('Timer','Interval',i);
+     settings.WriteBool('General','Switch',switch);
+     settings.Destroy;
+end;
+
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-
+   settingspath:='./settings.ini';
+   settings:=Tinifile.create(settingspath);
+   //开始读取设置
+   switch:=settings.ReadBool('General','Switch',false);
+   timer1.Interval:=settings.ReadInteger('Timer','Interval',500);
 end;
 
 procedure TForm1.FormShow(Sender: TObject);

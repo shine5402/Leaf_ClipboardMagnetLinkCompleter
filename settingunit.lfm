@@ -1,11 +1,11 @@
 object SettingForm: TSettingForm
-  Left = 655
-  Height = 152
-  Top = 138
-  Width = 389
+  Left = 948
+  Height = 106
+  Top = 414
+  Width = 259
   Caption = '设置'
-  ClientHeight = 152
-  ClientWidth = 389
+  ClientHeight = 106
+  ClientWidth = 259
   OnCreate = FormCreate
   OnShow = FormShow
   LCLVersion = '1.6.4.0'
@@ -14,9 +14,9 @@ object SettingForm: TSettingForm
     AnchorSideLeft.Side = asrCenter
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 157
+    Left = 92
     Height = 25
-    Top = 112
+    Top = 66
     Width = 75
     Anchors = [akLeft, akBottom]
     BorderSpacing.Bottom = 15

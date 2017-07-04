@@ -1,11 +1,12 @@
 object Form1: TForm1
-  Left = 410
+  Left = 743
   Height = 181
-  Top = 185
+  Top = 400
   Width = 394
   Caption = 'Leaf 磁力链剪贴板自动补全守护进程'
   ClientHeight = 181
   ClientWidth = 394
+  OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
   LCLVersion = '1.6.4.0'
