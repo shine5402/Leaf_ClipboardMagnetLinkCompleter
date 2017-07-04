@@ -11,7 +11,6 @@ uses
   { you can add units after this };
 
 {$R *.res}
-
 begin
   Application.Title:='Leaf 磁力链剪贴板自动补全守护进程';
   RequireDerivedFormResource:=True;

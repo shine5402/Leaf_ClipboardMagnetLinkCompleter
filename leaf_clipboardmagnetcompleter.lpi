@@ -16,6 +16,7 @@
     </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
+      <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="1"/>
       <Language Value="0804"/>
       <StringTable ProductVersion=""/>

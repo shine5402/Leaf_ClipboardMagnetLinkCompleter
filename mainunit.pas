@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  Clipbrd, ExtCtrls, inifiles;
+  Clipbrd, ExtCtrls, Menus, inifiles;
 
 type
 
@@ -16,16 +16,29 @@ type
     Button1: TButton;
     Button2: TButton;
     Button3: TButton;
+    Button4: TButton;
     Label1: TLabel;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
+    PopupMenu1: TPopupMenu;
     Timer1: TTimer;
     TrayIcon1: TTrayIcon;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
+    procedure FormHide(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FormWindowStateChange(Sender: TObject);
+    procedure MenuItem1Click(Sender: TObject);
+    procedure MenuItem3Click(Sender: TObject);
+    procedure MenuItem4Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
+    procedure TrayIcon1Click(Sender: TObject);
 
   private
     { private declarations }
@@ -87,9 +100,16 @@ begin
      if not(RunComplete) then MessageDlg('Leaf 磁力链接剪贴板自动补全守护进程','剪贴板看起来不能或者不需要补全',mtInformation,[mbOK],0) else MessageDlg('Leaf 磁力链接剪贴板自动补全守护进程','补全完成！'+#13+#10+'现在的剪贴板是：'+Clipboard.AsText,mtInformation,[mbOK],0);//showmessage('补全完成！'+#13+#10+'现在的剪贴板是：'+Clipboard.AsText);
 end;
 
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+  form1.hide;
+  settingform.hide;
+end;
+
 procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 var i:integer;
 begin
+  timer1.Enabled:=false;
   i:=timer1.Interval;
      settings.WriteInteger('Timer','Interval',i);
      settings.WriteBool('General','Switch',switch);
@@ -103,12 +123,45 @@ begin
    //开始读取设置
    switch:=settings.ReadBool('General','Switch',false);
    timer1.Interval:=settings.ReadInteger('Timer','Interval',500);
+     if switch then begin Label1.Caption:='当前状态：开启';
+  TrayIcon1.BalloonTitle:='磁力链剪贴板自动补全已启动';
+  TrayIcon1.BalloonHint:='单击此处可启动程序面板';
+  TrayIcon1.ShowBalloonHint;
+end else Label1.Caption:='当前状态：关闭';
+    timer1.Enabled:=switch;
+end;
+
+procedure TForm1.FormHide(Sender: TObject);
+begin
+
 end;
 
 procedure TForm1.FormShow(Sender: TObject);
 begin
-  if switch then Label1.Caption:='当前状态：开启' else Label1.Caption:='当前状态：关闭';
+  if switch then begin Label1.Caption:='当前状态：开启';
+end else Label1.Caption:='当前状态：关闭';
     timer1.Enabled:=switch;
+end;
+
+procedure TForm1.FormWindowStateChange(Sender: TObject);
+begin
+
+
+end;
+
+procedure TForm1.MenuItem1Click(Sender: TObject);
+begin
+  form1.show;
+end;
+
+procedure TForm1.MenuItem3Click(Sender: TObject);
+begin
+  form1.close;
+end;
+
+procedure TForm1.MenuItem4Click(Sender: TObject);
+begin
+  button1.Click;
 end;
 
 procedure TForm1.Timer1Timer(Sender: TObject);
@@ -122,6 +175,12 @@ begin
   TrayIcon1.ShowBalloonHint;
   end;
 end;
+
+procedure TForm1.TrayIcon1Click(Sender: TObject);
+begin
+    form1.show;
+end;
+
 procedure TForm1.Button2Click(Sender: TObject);
 begin
   SettingForm.Show;
@@ -130,7 +189,12 @@ end;
 procedure TForm1.Button1Click(Sender: TObject);
 begin
   switch:=not(switch);
-    if switch then Label1.Caption:='当前状态：开启' else Label1.Caption:='当前状态：关闭';
+    if switch then begin
+    Label1.Caption:='当前状态：开启';
+    TrayIcon1.BalloonTitle:='磁力链剪贴板自动补全已启动';
+    TrayIcon1.BalloonHint:='单击此处可启动程序面板';
+    TrayIcon1.ShowBalloonHint;
+    end else Label1.Caption:='当前状态：关闭';
     timer1.Enabled:=switch;
 
 end;
