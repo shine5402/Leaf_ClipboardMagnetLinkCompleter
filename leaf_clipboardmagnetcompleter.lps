@@ -3,7 +3,7 @@
   <ProjectSession>
     <PathDelim Value="\"/>
     <Version Value="10"/>
-    <BuildModes Active="Debug_x64"/>
+    <BuildModes Active="Release_x64"/>
     <Units Count="11">
       <Unit0>
         <Filename Value="leaf_clipboardmagnetcompleter.lpr"/>
@@ -11,7 +11,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="6"/>
         <CursorPos X="11" Y="13"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="27"/>
       </Unit0>
       <Unit1>
         <Filename Value="mainunit.pas"/>
@@ -20,9 +20,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="119"/>
+        <TopLine Value="187"/>
         <CursorPos X="33" Y="131"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="27"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -35,7 +35,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="34"/>
         <CursorPos X="8" Y="39"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="27"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit2>
@@ -96,7 +96,7 @@
         <DefaultSyntaxHighlighter Value="XML"/>
       </Unit10>
     </Units>
-    <JumpHistory Count="16" HistoryIndex="15">
+    <JumpHistory Count="14" HistoryIndex="13">
       <Position1>
         <Filename Value="mainunit.pas"/>
         <Caret Line="107" TopLine="93"/>
@@ -135,32 +135,24 @@
       </Position9>
       <Position10>
         <Filename Value="mainunit.pas"/>
-        <Caret Line="64" TopLine="65"/>
+        <Caret Line="132" Column="50" TopLine="114"/>
       </Position10>
       <Position11>
         <Filename Value="mainunit.pas"/>
-        <Caret Line="132" Column="50" TopLine="114"/>
+        <Caret Line="138" TopLine="135"/>
       </Position11>
       <Position12>
         <Filename Value="mainunit.pas"/>
-        <Caret Line="9" Column="45" TopLine="80"/>
+        <Caret Line="9" Column="37"/>
       </Position12>
       <Position13>
         <Filename Value="mainunit.pas"/>
-        <Caret Line="138" TopLine="135"/>
+        <Caret Line="106" Column="14" TopLine="103"/>
       </Position13>
       <Position14>
         <Filename Value="mainunit.pas"/>
-        <Caret Line="9" Column="37"/>
-      </Position14>
-      <Position15>
-        <Filename Value="mainunit.pas"/>
-        <Caret Line="106" Column="14" TopLine="103"/>
-      </Position15>
-      <Position16>
-        <Filename Value="mainunit.pas"/>
         <Caret Line="135" Column="64" TopLine="131"/>
-      </Position16>
+      </Position14>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>
